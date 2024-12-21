@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -14,18 +15,22 @@ class Comment
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups('publication.details')]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups('publication.details')]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups('publication.details')]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     private ?Publication $publication = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'childComments')]
+    #[Groups('publication.details')]
     private ?self $parentComment = null;
 
     /**
@@ -35,12 +40,14 @@ class Comment
     private Collection $childComments;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[Groups('publication.details')]
     private ?User $publisher = null;
 
     /**
      * @var Collection<int, Reaction>
      */
     #[ORM\OneToMany(targetEntity: Reaction::class, mappedBy: 'comment')]
+    #[Groups('publication.details')]
     private Collection $reactions;
 
     public function __construct()
