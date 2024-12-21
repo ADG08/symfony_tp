@@ -1,0 +1,11 @@
+App\Entity\Comment:
+  comment (template):
+    content: "<sentence()>"
+    createdAt: "<dateTimeBetween('-100 days', 'now')>"
+    publication: '@publication_*'
+    publisher: '@user_*'
+
+  comment_{1..20} (extends comment):
+
+  comment_child_{1..10} (extends comment):
+    parentComment: '@comment_*'

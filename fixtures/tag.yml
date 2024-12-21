@@ -1,0 +1,7 @@
+App\Entity\Tag:
+    tag_technology:
+        label: "Technology"
+    tag_travel:
+        label: "Travel"
+    tag_food:
+        label: "Food"

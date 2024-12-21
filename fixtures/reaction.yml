@@ -1,0 +1,19 @@
+App\Entity\Reaction:
+    reaction (template):
+        reactor: '@user_*'
+
+    reaction_upvote_publication_{1..50} (extends reaction):
+        publication: '@publication_*'
+        type: !php/const App\Enum\ReactionTypeEnum::UPVOTE
+
+    reaction_downvote_publication_{1..50} (extends reaction):
+        publication: '@publication_*'
+        type: !php/const App\Enum\ReactionTypeEnum::DOWNVOTE
+
+    reaction_upvote_comment_{1..50} (extends reaction):
+        comment: '@comment_*'
+        type: !php/const App\Enum\ReactionTypeEnum::UPVOTE
+
+    reaction_downvote_comment_{1..50} (extends reaction):
+        comment: '@comment_*'
+        type: !php/const App\Enum\ReactionTypeEnum::DOWNVOTE
