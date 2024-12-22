@@ -1,7 +1,7 @@
 # 3 -> Réseau social
 
 ## How to connect
-
+```
 ### for symfony
 - composer i
 - symfony server:start
@@ -12,12 +12,11 @@
 
 ### for db
 - i'm using PostgreSQL
-
+```
 ### Users
-- All accounts share the same password: 12345
-#### Admin
-admin@admin.fr
-#### User
-user@user.fr
-#### Banned 
-banned@banned.fr
+
+| Role            | Email           | Password       |
+|---------------------|---------------------|--------------------|
+|   🔑 Admin       | admin@admin.fr | 12345 |
+| 👤 User       | user@user.fr | 12345 |
+| 🚫 Banned  | banned@banned.fr | 12345 |
