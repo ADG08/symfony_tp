@@ -3,6 +3,6 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <div class="w-full" {{ react_component('Index', {username: app.user ? app.user.username : null, publications: publications}) }}>
+    <div class="w-full" {{ react_component('Index', {username: app.user ? app.user.username : null, publications: publications, tags: tags  }) }}>
     </div>
 {% endblock %}

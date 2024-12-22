@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reaction{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2">
+        <h1>Reaction</h1>
+        <p>id : {{ reaction.id }}</p>
+        <p>type : {{ reaction.type.value }}</p>
+
+        <a href="{{ path('app_reaction_index') }}">back to list</a>
+
+        {% if 'ROLE_ADMIN' in app.user%}
+            <a href="{{ path('app_reaction_edit', {'id': reaction.id}) }}">edit</a>
+            {{ include('reaction/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+{% endblock %}

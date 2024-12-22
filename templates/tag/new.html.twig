@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tag{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2">
+        <h1>Create new Tag</h1>
+
+        <div class="text-black p-2 bg-indigo-900">
+            {{ include('tag/_form.html.twig') }}
+        </div>
+
+        <a href="{{ path('app_tag_index') }}">back to list</a>
+    </div>
+{% endblock %}

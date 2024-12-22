@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tag index{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2">
+        <h1>Tag index</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Label</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for tag in tags %}
+                <tr>
+                    <td>{{ tag.id }}</td>
+                    <td>{{ tag.label }}</td>
+                    <td>
+                        <a href="{{ path('app_tag_show', {'id': tag.id}) }}">show</a>
+                        {% if 'ROLE_ADMIN' in app.user.roles %}
+                            <a href="{{ path('app_tag_edit', {'id': tag.id}) }}">edit</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if 'ROLE_ADMIN' in app.user.roles  %}
+            <a href="{{ path('app_tag_new') }}">Create new</a>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -17,7 +17,7 @@ class Tag
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups('publication.read')]
+    #[Groups(['publication.read', 'tag.read'])]
     private ?string $label = null;
 
     /**

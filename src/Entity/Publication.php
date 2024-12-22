@@ -44,14 +44,14 @@ class Publication
     /**
      * @var Collection<int, Comment>
      */
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'publication')]
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'publication', cascade: ['remove'])]
     #[Groups('publication.read')]
     private Collection $comments;
 
     /**
      * @var Collection<int, Reaction>
      */
-    #[ORM\OneToMany(targetEntity: Reaction::class, mappedBy: 'publication')]
+    #[ORM\OneToMany(targetEntity: Reaction::class, mappedBy: 'publication', cascade: ['remove'])]
     #[Groups('publication.read')]
     private Collection $reactions;
 

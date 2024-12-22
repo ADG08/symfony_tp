@@ -16,7 +16,7 @@
 		{% endblock %}
 	</head>
 	<body class="bg-midnight-gray flex h-screen text-white">
-		<div class="flex flex-col w-56 h-full px-4 py-4 border-r border-slate-gray gap-2" {{ react_component('Sidebar', {isConnected: app.user, isAdmin: app.user ? app.user.roles : null })}}></div>
+		<div class="flex flex-col w-56 h-full px-4 py-4 border-r border-slate-gray gap-2" {{ react_component('Sidebar', {isConnected: app.user, isAdmin: app.user ? app.user.roles : null, username: app.user ? app.user.username, id: app.user ? app.user.id })}}></div>
 		{% block body %}{% endblock %}
 	</body>
 </html>

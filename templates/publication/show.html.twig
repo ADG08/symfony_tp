@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2">
+        <h1>Publication</h1>
+        <p>id : {{ publication.id }}</p>
+        <p>title : {{ publication.title }}</p>
+        <p>content : {{ publication.content }}</p>
+        <p>createdAt : {{ publication.createdAt ? publication.createdAt|date('Y-m-d H:i:s') : ''}}</p>
+
+        <a href="{{ path('app_publication_index') }}">back to list</a>
+
+        {% if 'ROLE_ADMIN' in app.user.roles %}
+            <a href="{{ path('app_publication_edit', {'id': publication.id}) }}">edit</a>
+            {{ include('publication/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+{% endblock %}

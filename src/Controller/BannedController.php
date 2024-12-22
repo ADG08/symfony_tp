@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class BannedController extends AbstractController
+class   BannedController extends AbstractController
 {
     #[Route('/banned', name: 'app_banned')]
     public function index(): Response

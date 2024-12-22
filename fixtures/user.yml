@@ -11,19 +11,19 @@ App\Entity\User:
         roles: ["ROLE_BANNED"]
 
     user_with_password:
-        username: "user"
+        username: "user-cool-12"
         email: "user@user.fr"
         plainPassword: "12345"
         roles: [ "ROLE_USER" ]
 
     user_banned_with_password:
-        username: "banned"
+        username: "banned-452"
         email: "ban@ban.fr"
         plainPassword: "12345"
         roles: ["ROLE_BANNED"]
 
     user_admin:
-        username: "admin"
+        username: "admin-1559"
         email: "admin@admin.fr"
-        plainPassword: "admin"
+        plainPassword: "12345"
         roles: ["ROLE_ADMIN"]

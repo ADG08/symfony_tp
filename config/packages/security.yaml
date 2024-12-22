@@ -30,6 +30,25 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/publication/\d+/edit, roles: ROLE_ADMIN }
+         - { path: ^/publication/new, roles: ROLE_ADMIN }
+         - { path: ^/publication, roles: ROLE_USER }
+         - { path: ^/user/\d+/edit, roles: ROLE_ADMIN }
+         - { path: ^/user/new, roles: ROLE_ADMIN }
+         - { path: ^/user, roles: ROLE_USER }
+         - { path: ^/tag/\d+/edit, roles: ROLE_ADMIN }
+         - { path: ^/tag/new, roles: ROLE_ADMIN }
+         - { path: ^/tag, roles: ROLE_USER }
+         - { path: ^/comment/\d+/edit, roles: ROLE_ADMIN }
+         - { path: ^/comment/new, roles: ROLE_ADMIN }
+         - { path: ^/comment, roles: ROLE_USER }
+         - { path: ^/reaction/\d+/edit, roles: ROLE_ADMIN }
+         - { path: ^/reaction/new, roles: ROLE_ADMIN }
+         - { path: ^/reaction, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_BANNED:
 
 when@test:
     security:

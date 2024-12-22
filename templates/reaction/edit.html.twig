@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Reaction{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2">
+        <h1>Edit Reaction</h1>
+
+        <div class="text-black p-2 bg-indigo-900">
+            {{ include('reaction/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <a href="{{ path('app_reaction_index') }}">back to list</a>
+
+        {{ include('reaction/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

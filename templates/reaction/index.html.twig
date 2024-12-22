@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reaction index{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2">
+        <h1>Reaction index</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Type</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for reaction in reactions %}
+                <tr>
+                    <td>{{ reaction.id }}</td>
+                    <td>{{ reaction.type.value }}</td>
+                    <td>
+                        <a href="{{ path('app_reaction_show', {'id': reaction.id}) }}">show</a>
+                        {% if 'ROLE_ADMIN' in app.user.roles %}
+                            <a href="{{ path('app_reaction_edit', {'id': reaction.id}) }}">edit</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if 'ROLE_ADMIN' in app.user.roles %}
+            <a href="{{ path('app_reaction_new') }}">Create new</a>
+        {% endif %}
+    </div>
+{% endblock %}
